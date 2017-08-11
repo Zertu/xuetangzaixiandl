@@ -1,7 +1,7 @@
 const tough = require('tough-cookie'),
     rp = require('request-promise'), {writeFile} = require('fs')
 // Easy creation of the cookie - see tough-cookie docs for details
-let cookie = new tough.Cookie({key: "some_key", value: "some_value", domain: 'api.mydomain.com', httpOnly: true, maxAge: 31536000});
+let cookies = new tough.CookieJar();
 
 function login(account, pwd) {
     let cookiejar = rp.jar()
@@ -19,11 +19,17 @@ function login(account, pwd) {
         jar: cookiejar
     }
     rp(options).then(function (body) {
-        const cookie=cookiejar._jar.store.idx['www.xuetangx.com']['/']
-        writeFile('cookie.json', JSON.stringify(cookie), err => {})
+        let cookie=cookiejar._jar.store.idx['www.xuetangx.com']['/']
+        cookies.getCookies('http://www.xuetangx.com',(err,cookies)=>{
+        console.log(cookies)
+
+        })
+        cookie=JSON.stringify(cookie)
+        writeFile('./cookie.json', cookie, err => {})
     })
         .catch(function (err) {
             console.log(err)
         })
 }
-login('290055513@qq.com', 'a7864548')
+    login('290055513@qq.com', 'a7864548')
+module.exports=login
