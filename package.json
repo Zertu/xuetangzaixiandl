@@ -1,0 +1,26 @@
+{
+  "name": "xuetangzaixiandl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zertu/xuetangzaixiandl.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zertu/xuetangzaixiandl/issues"
+  },
+  "homepage": "https://github.com/Zertu/xuetangzaixiandl#readme",
+  "dependencies": {
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
+  },
+  "devDependencies": {
+    "tough-cookie": "^2.3.2"
+  }
+}
